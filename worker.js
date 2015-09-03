@@ -12,9 +12,13 @@ bus.on('registration', function (msg) {
     email: account.email
   });
 
-  if (account.membership &&
-      account.membership.name) {
-    profile.name = account.membership.name;
+  if (account.membership) {
+    if (account.membership.email) {
+      profile.email = account.membership.email;
+    }
+    if (account.membership.name) {
+      profile.name = account.membership.name;
+    }
   }
 
   profile.save(function (err) {
