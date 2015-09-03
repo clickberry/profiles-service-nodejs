@@ -31,7 +31,7 @@ The service listens events from the Bus (messaging service).
 
 Topic | Channel | Params | Description
 :-- | :-- | :-- | :--
-registrations | create-profile | { id: *user_id*, email: *user_email*, memberships: { name: *user_name* } } | Creates user profile.
+registrations | create-profile | { id: *user_id*, email: *user_email*, membership: { name: *user_name* } } | Creates user profile.
 account-deletes | delete-profile | { id: *user_id* } | Deletes user profile.
 
 # License
