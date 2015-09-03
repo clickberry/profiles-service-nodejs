@@ -1,6 +1,6 @@
 {
   "name": "profiles-service-nodejs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Profiles worker micro-service on Node.js",
   "main": "app.js",
   "dependencies": {
