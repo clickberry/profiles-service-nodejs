@@ -24,6 +24,10 @@ bus.on('registration', function (msg) {
   profile.save(function (err) {
     if (err) {
       debug('Could not create profile: ' + err.message);
+      if (err.type == 'conflict') {
+        // skip duplicate registration
+        return msg.finish();
+      }
       return msg.requeue();
     }
 
