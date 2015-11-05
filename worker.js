@@ -23,7 +23,7 @@ bus.on('registration', function (msg) {
 
   profile.save(function (err) {
     if (err) {
-      debug('Could not create profile: ' + JSON.stringify(err));
+      debug('Could not create profile: ' + err.message);
       return msg.requeue();
     }
 
@@ -38,7 +38,7 @@ bus.on('delete', function (msg) {
 
   Profile.del(account.id, function (err) {
     if (err) {
-      debug('Could not delete profile: ' + JSON.stringify(err));
+      debug('Could not delete profile: ' + err.message);
       return msg.requeue();
     }
 
