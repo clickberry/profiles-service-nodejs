@@ -8,17 +8,19 @@ bus.on('registration', function (msg) {
   debug('Account registration: ' + JSON.stringify(account));
 
   var profile = new Profile({
-    id: account.id,
-    email: account.email
+    id: account.id
   });
 
-  if (account.membership) {
-    if (account.membership.email) {
-      profile.email = account.membership.email;
-    }
-    if (account.membership.name) {
-      profile.name = account.membership.name;
-    }
+  // getting email
+  if (account.email) {
+    profile.email = account.email;
+  } else if (account.membership && account.membership.email) {
+    profile.email = account.membership.email;
+  }
+
+  // getting name
+  if (account.membership && account.membership.name) {
+    profile.name = account.membership.name;
   }
 
   profile.save(function (err) {
